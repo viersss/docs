@@ -88,21 +88,30 @@ function populateSelect(sel, includeAll = true) {
 function initNav() {
   const sections = ['hero', 'hook', 'map-section', 'structure', 'ranking-section', 'gap-section', 'trend-section', 'explore'];
   const nav = $('#navDots');
-  sections.forEach((id, i) => {
-    const dot = document.createElement('button');
-    dot.className = 'nav-dot'; dot.title = id; dot.setAttribute('aria-label', 'Ke bagian ' + id);
-    dot.onclick = () => document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-    nav.appendChild(dot);
-  });
+  if (nav) {
+    sections.forEach((id, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'nav-dot'; dot.title = id; dot.setAttribute('aria-label', 'Ke bagian ' + id);
+      dot.onclick = () => document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+      nav.appendChild(dot);
+    });
+  }
   window.addEventListener('scroll', () => {
     const max = document.body.scrollHeight - innerHeight;
-    $('#progress').style.width = (scrollY / max * 100) + '%';
-    let active = 0;
-    sections.forEach((id, i) => {
-      const r = document.getElementById(id).getBoundingClientRect();
-      if (r.top < innerHeight * .45) active = i;
-    });
-    $$('.nav-dot').forEach((d, i) => d.classList.toggle('active', i === active));
+    const progress = $('#progress');
+    if (progress) progress.style.width = (scrollY / max * 100) + '%';
+    
+    if (nav) {
+      let active = 0;
+      sections.forEach((id, i) => {
+        const el = document.getElementById(id);
+        if (el) {
+          const r = el.getBoundingClientRect();
+          if (r.top < innerHeight * .45) active = i;
+        }
+      });
+      $$('.nav-dot').forEach((d, i) => d.classList.toggle('active', i === active));
+    }
   });
 }
 
