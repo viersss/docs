@@ -1,0 +1,173 @@
+{
+  "source": "hidden-cost-webstory-v6/index.html and index (2).html were identical",
+  "source_sha256": "7f26acc0e8669c858f21da327c7957c2099950d902144bcc6a67ed8661e6b9c7",
+  "output": {
+    "index.html": {
+      "characters": 16444,
+      "lines": 246,
+      "sections": 8,
+      "data_images_extracted": 29
+    },
+    "css/styles.css": {
+      "characters": 28486,
+      "lines": 513,
+      "root_blocks": 3,
+      "media_queries": 12,
+      "keyframes": 4
+    },
+    "js/script.js": {
+      "characters": 365324,
+      "lines": 379,
+      "const_count": 129,
+      "function_count": 129,
+      "event_listener_count": 21
+    },
+    "assets/images": [
+      {
+        "file": "assets/images/food-sticker-01.png",
+        "mime": "image/png",
+        "bytes": 8391
+      },
+      {
+        "file": "assets/images/food-sticker-02.png",
+        "mime": "image/png",
+        "bytes": 17895
+      },
+      {
+        "file": "assets/images/food-sticker-03.png",
+        "mime": "image/png",
+        "bytes": 6423
+      },
+      {
+        "file": "assets/images/food-sticker-04.png",
+        "mime": "image/png",
+        "bytes": 19777
+      },
+      {
+        "file": "assets/images/food-sticker-05.png",
+        "mime": "image/png",
+        "bytes": 7941
+      },
+      {
+        "file": "assets/images/food-sticker-06.png",
+        "mime": "image/png",
+        "bytes": 8565
+      },
+      {
+        "file": "assets/images/food-sticker-07.png",
+        "mime": "image/png",
+        "bytes": 3947
+      },
+      {
+        "file": "assets/images/food-sticker-08.png",
+        "mime": "image/png",
+        "bytes": 6762
+      },
+      {
+        "file": "assets/images/food-sticker-09.png",
+        "mime": "image/png",
+        "bytes": 3716
+      },
+      {
+        "file": "assets/images/food-sticker-10.png",
+        "mime": "image/png",
+        "bytes": 8565
+      },
+      {
+        "file": "assets/images/food-sticker-11.png",
+        "mime": "image/png",
+        "bytes": 14511
+      },
+      {
+        "file": "assets/images/food-sticker-12.png",
+        "mime": "image/png",
+        "bytes": 7941
+      },
+      {
+        "file": "assets/images/food-sticker-13.png",
+        "mime": "image/png",
+        "bytes": 10065
+      },
+      {
+        "file": "assets/images/food-sticker-14.png",
+        "mime": "image/png",
+        "bytes": 8391
+      },
+      {
+        "file": "assets/images/food-sticker-15.png",
+        "mime": "image/png",
+        "bytes": 19777
+      },
+      {
+        "file": "assets/images/food-sticker-16.png",
+        "mime": "image/png",
+        "bytes": 15961
+      },
+      {
+        "file": "assets/images/food-sticker-17.png",
+        "mime": "image/png",
+        "bytes": 17895
+      },
+      {
+        "file": "assets/images/food-sticker-18.png",
+        "mime": "image/png",
+        "bytes": 6423
+      },
+      {
+        "file": "assets/images/food-sticker-19.png",
+        "mime": "image/png",
+        "bytes": 6762
+      },
+      {
+        "file": "assets/images/food-sticker-20.png",
+        "mime": "image/png",
+        "bytes": 14511
+      },
+      {
+        "file": "assets/images/food-sticker-21.png",
+        "mime": "image/png",
+        "bytes": 3716
+      },
+      {
+        "file": "assets/images/food-sticker-22.png",
+        "mime": "image/png",
+        "bytes": 8565
+      },
+      {
+        "file": "assets/images/food-sticker-23.png",
+        "mime": "image/png",
+        "bytes": 7941
+      },
+      {
+        "file": "assets/images/food-sticker-24.png",
+        "mime": "image/png",
+        "bytes": 15961
+      },
+      {
+        "file": "assets/images/food-sticker-25.png",
+        "mime": "image/png",
+        "bytes": 19777
+      },
+      {
+        "file": "assets/images/food-sticker-26.png",
+        "mime": "image/png",
+        "bytes": 8391
+      },
+      {
+        "file": "assets/images/food-sticker-27.png",
+        "mime": "image/png",
+        "bytes": 3947
+      },
+      {
+        "file": "assets/images/food-sticker-28.png",
+        "mime": "image/png",
+        "bytes": 6762
+      },
+      {
+        "file": "assets/images/food-sticker-29.png",
+        "mime": "image/png",
+        "bytes": 17895
+      }
+    ]
+  }
+}
