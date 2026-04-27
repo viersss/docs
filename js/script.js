@@ -183,18 +183,18 @@ function drawMapLegend(min, max) {
 }
 
 function drawCommodityBars() {
-  const svg = clearSvg('#commodityBars'), W = 620, H = 440, left = 180, right = 28, top = 22, rowH = 50;
+  const svg = clearSvg('#commodityBars'), W = 620, H = 440, left = 180, right = 120, top = 22, rowH = 50;
   const rows = DATA.commodityAvg.slice().sort((a, b) => b[metric] - a[metric]);
   const max = Math.max(...rows.map(d => d[metric]));
   const x = scaleLinear([0, max], [left, W - right]);
   for (let i = 0; i < rows.length; i++) {
     const d = rows[i], y = top + i * rowH;
-    addText(svg, shortName(d.CommodityLabel), left - 12, y + 24, { 'text-anchor': 'end', 'class': 'svg-label', 'font-size': '13', 'font-weight': '700', 'fill': '#3c2b1d' });
+    addText(svg, shortName(d.CommodityLabel), left - 12, y + 24, { 'text-anchor': 'end', 'class': 'svg-label', 'font-size': '14', 'font-weight': '700', 'fill': '#3c2b1d' });
     addRect(svg, left, y + 6, W - left - right, 30, { rx: 8, class: 'chartbar-bg' });
     const bar = addRect(svg, left, y + 6, Math.max(2, x(d[metric]) - left), 30, { rx: 8, fill: i < 2 ? 'url(#grad-chili)' : i < 5 ? 'url(#grad-gold)' : 'url(#grad-teal)' });
     bar.addEventListener('mousemove', e => tooltip(`<b>${safe(d.CommodityLabel)}</b><small>${safe(d.CategoryLabel)}</small><div style="font-family:var(--mono);color:var(--gold);margin-top:6px">${fmt(d[metric])}</div>`, e.clientX, e.clientY));
     bar.addEventListener('mouseleave', hideTooltip);
-    addText(svg, fmt(d[metric]), x(d[metric]) + 10, y + 26, { 'class': 'svg-label', 'font-size': '12', 'font-weight': '800', 'fill': '#5a3e2b' });
+    addText(svg, fmt(d[metric]), x(d[metric]) + 10, y + 26, { 'class': 'svg-label', 'font-size': '14', 'font-weight': '800', 'fill': '#5a3e2b' });
   }
 }
 function arcPath(cx, cy, r0, r1, a0, a1) {
@@ -244,7 +244,7 @@ function drawDonut() {
 }
 
 function drawProvinceBars(target = '#provinceBars', commodity = null, topOnly = true, m = metric) {
-  const svg = clearSvg(target), W = 780, H = 520, left = 175, right = 80, top = 40, rowH = 64;
+  const svg = clearSvg(target), W = 780, H = 520, left = 175, right = 110, top = 40, rowH = 64;
   let rows = commodity && commodity !== '__all__' ? DATA.provinceCommodity[commodity].slice() : DATA.provinceAvg.slice();
   rows.sort((a, b) => b[m] - a[m]); if (topOnly) rows = rows.slice(0, 10);
   const dataMax = Math.max(...rows.map(d => d[m]));
