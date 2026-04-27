@@ -293,7 +293,7 @@ function drawProvinceBars(target = '#provinceBars', commodity = null, topOnly = 
 }
 
 function drawDumbbell() {
-  const svg = clearSvg('#dumbbellChart'), W = 960, H = 780, left = 220, right = 160, top = 50, rowH = 90;
+  const svg = clearSvg('#dumbbellChart'), W = 1200, H = 780, left = 260, right = 140, top = 50, rowH = 60;
   let rows = DATA.ranges.slice();
   if (gapSelected !== '__all__') rows = rows.filter(d => d.commodity === gapSelected);
   const key = metric === 'price' ? 'Price' : 'Usd';
@@ -307,16 +307,16 @@ function drawDumbbell() {
   }
   rows.forEach((d, i) => {
     const y = top + i * rowH + 24, min = d['min' + key], max = d['max' + key], avg = d['avg' + key], spread = d['spread' + key];
-    addText(svg, shortName(d.commodity), left - 20, y + 6, { 'text-anchor': 'end', 'class': 'svg-label', 'font-size': '18', 'font-weight': '700' });
-    const line = addLine(svg, x(min), y, x(max), y, { stroke: d.ratio >= 1.7 ? 'var(--chili)' : 'var(--gold)', 'stroke-width': 16, 'stroke-linecap': 'round', opacity: .82 });
+    addText(svg, shortName(d.commodity), left - 20, y + 6, { 'text-anchor': 'end', 'class': 'svg-label', 'font-size': '16', 'font-weight': '700' });
+    const line = addLine(svg, x(min), y, x(max), y, { stroke: d.ratio >= 1.7 ? 'var(--chili)' : 'var(--gold)', 'stroke-width': 12, 'stroke-linecap': 'round', opacity: .82 });
     line.addEventListener('mousemove', e => tooltip(`<b>${safe(d.commodity)}</b><small>Rentang ${safe(metricLabel())}</small><div style="font-family:var(--mono);color:var(--gold);margin-top:6px">${fmtM(spread, metric)} · ${d.ratio}×</div>`, e.clientX, e.clientY));
     line.addEventListener('mouseleave', hideTooltip);
-    addCircle(svg, x(min), y, 14, { fill: 'var(--teal)', stroke: 'var(--bg)', 'stroke-width': 3 });
-    addCircle(svg, x(max), y, 14, { fill: 'var(--chili)', stroke: 'var(--bg)', 'stroke-width': 3 });
-    addCircle(svg, x(avg), y, 8, { fill: 'var(--gold)', stroke: 'var(--bg)', 'stroke-width': 2 });
-    addText(svg, d.minProv, x(min), y + 36, { 'text-anchor': 'middle', 'class': 'svg-label', 'font-size': 14 });
-    addText(svg, d.maxProv, x(max), y - 24, { 'text-anchor': 'middle', 'class': 'svg-label', 'font-size': 14 });
-    addText(svg, fmtM(spread, metric), W - 6, y + 6, { 'text-anchor': 'end', 'class': 'svg-label', fill: 'var(--gold)', 'font-size': 18, 'font-weight': 'bold' });
+    addCircle(svg, x(min), y, 10, { fill: 'var(--teal)', stroke: 'var(--bg)', 'stroke-width': 2 });
+    addCircle(svg, x(max), y, 10, { fill: 'var(--chili)', stroke: 'var(--bg)', 'stroke-width': 2 });
+    addCircle(svg, x(avg), y, 6, { fill: 'var(--gold)', stroke: 'var(--bg)', 'stroke-width': 2 });
+    addText(svg, d.minProv, x(min), y + 26, { 'text-anchor': 'middle', 'class': 'svg-label', 'font-size': 12 });
+    addText(svg, d.maxProv, x(max), y - 16, { 'text-anchor': 'middle', 'class': 'svg-label', 'font-size': 12 });
+    addText(svg, fmtM(spread, metric), W - 6, y + 6, { 'text-anchor': 'end', 'class': 'svg-label', fill: 'var(--gold)', 'font-size': 16, 'font-weight': 'bold' });
   });
   addText(svg, 'termurah', left, 14, { class: 'svg-label', 'text-anchor': 'middle', 'font-size': 16 });
   addText(svg, 'termahal', W - right, 14, { class: 'svg-label', 'text-anchor': 'middle', 'font-size': 16 });
@@ -324,12 +324,14 @@ function drawDumbbell() {
 }
 
 function drawLineChart(target = '#lineChart', commodity = '__all__', m = metric) {
-  const svg = clearSvg(target), W = 900, H = 540, left = 75, right = 40, top = 40, bottom = 65;
+  const isExplore = target === '#exploreTrend';
+  const svg = clearSvg(target), W = 900, H = isExplore ? 720 : 540, left = 75, right = 40, top = 40, bottom = 65;
   let series = commodity === '__all__' ? DATA.commodities.map(c => ({ name: c, rows: DATA.monthly[c] })) : [{ name: commodity, rows: DATA.monthly[commodity] }];
   const allVals = series.flatMap(s => s.rows.map(d => d[m]));
   const ymin = Math.min(...allVals), ymax = Math.max(...allVals);
   const yPad = (ymax - ymin) * .12 || 1000;
   const x = scaleLinear([1, 12], [left, W - right]), y = scaleLinear([ymin - yPad, ymax + yPad], [H - bottom, top]);
+  svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
   for (let i = 0; i < 6; i++) {
     const val = ymin - yPad + (ymax - ymin + 2 * yPad) * i / 5;
     const yy = y(val);
@@ -434,7 +436,22 @@ function updateRankingInsight() {
     '<div class="rank-interp-card"><div class="interp-label">Jarak Harga</div>Jarak antara posisi tertinggi dan terendah mencapai <b>' + fmt(gap) + '/kg</b> (sekitar <b>' + pctGap + '%</b>), sehingga ranking ini memperjelas siapa yang berada di ujung beban harga.</div>' +
     '</div>';
 }
-function updateGapInsight() { const el = $('#gapInsight'); if (!el) return; const key = metric === 'price' ? 'Price' : 'Usd'; const rows = (gapSelected === '__all__' ? DATA.ranges.slice() : DATA.ranges.filter(d => d.commodity === gapSelected)).sort((a, b) => b['spread' + key] - a['spread' + key]); if (!rows.length) return; const r = rows[0]; const label = gapSelected === '__all__' ? 'Rentang terbesar muncul pada <b>' + safe(shortName(r.commodity)) + '</b>' : '<b>' + safe(shortName(r.commodity)) + '</b>'; el.innerHTML = '<b>Interpretasi:</b> ' + label + ', dari <b>' + safe(r.minProv) + '</b> sebesar <b>' + fmtM(r['min' + key], metric) + '/kg</b> ke <b>' + safe(r.maxProv) + '</b> sebesar <b>' + fmtM(r['max' + key], metric) + '/kg</b>. Selisihnya mencapai <b>' + fmtM(r['spread' + key], metric) + '/kg</b> atau sekitar <b>' + r.ratio + ' kali</b>. Ini menunjukkan disparitas antarwilayah untuk komoditas yang sama, bukan sekadar fluktuasi waktu.'; }
+function updateGapInsight() { 
+  const el = $('#gapInsight'); if (!el) return; 
+  const key = metric === 'price' ? 'Price' : 'Usd'; 
+  const rows = (gapSelected === '__all__' ? DATA.ranges.slice() : DATA.ranges.filter(d => d.commodity === gapSelected)).sort((a, b) => b['spread' + key] - a['spread' + key]); 
+  if (!rows.length) return; 
+  const r = rows[0]; 
+  const isAll = gapSelected === '__all__';
+  const labelTitle = isAll ? 'Ketimpangan Terbesar' : 'Rentang Harga';
+  const labelText = isAll ? 'Rentang harga paling lebar terjadi pada <b>' + safe(shortName(r.commodity)) + '</b>.' : 'Untuk komoditas <b>' + safe(shortName(r.commodity)) + '</b>,';
+  
+  el.innerHTML = '<div class="rank-interp-grid" style="text-align: left; margin-top: 8px;">' +
+    '<div class="rank-interp-card"><div class="interp-label">' + labelTitle + '</div>' + labelText + ' Harga termurah ada di <b>' + safe(r.minProv) + '</b> (' + fmtM(r['min' + key], metric) + '/kg) dan termahal di <b>' + safe(r.maxProv) + '</b> (' + fmtM(r['max' + key], metric) + '/kg).</div>' +
+    '<div class="rank-interp-card"><div class="interp-label">Besaran Jurang</div>Selisih harga antara kedua wilayah tersebut mencapai <b>' + fmtM(r['spread' + key], metric) + '/kg</b>. Artinya, konsumen di daerah termahal membayar <b>' + r.ratio + ' kali lipat</b> lebih mahal.</div>' +
+    '<div class="rank-interp-card"><div class="interp-label">Makna Struktural</div>Hal ini menegaskan bahwa rata-rata nasional kerap menyembunyikan realitas: <b>lokasi</b> bisa jadi faktor utama mahalnya ongkos perut di beberapa provinsi.</div>' +
+    '</div>';
+}
 function updateTrendInsight() { const el = $('#trendInsight'); if (!el) return; const commodity = trendSelected; if (commodity === '__all__') { const beef = DATA.monthly['Daging sapi kualitas pertama']; const shallot = DATA.monthly['Bawang merah']; const rice = DATA.monthly['Beras kualitas sedang']; const avg = a => a.reduce((s, d) => s + d[metric], 0) / a.length; const shVals = shallot.map(d => d[metric]); const shSpread = Math.max(...shVals) - Math.min(...shVals); el.innerHTML = '<b>Interpretasi tren:</b> Saat semua komoditas tampil, pola utamanya adalah kontras antara <b>daging sapi</b> yang stabil tinggi (rata-rata ' + fmt(avg(beef)) + '/kg), <b>bawang merah</b> yang lebih naik-turun (rentang bulanan ' + fmt(shSpread) + '/kg), dan <b>beras</b> yang relatif rendah (rata-rata ' + fmt(avg(rice)) + '/kg). Beban harga muncul dari dua arah: mahal terus-menerus dan sulit diprediksi.'; return; } const rows = DATA.monthly[commodity]; const vals = rows.map(d => d[metric]); const avg = vals.reduce((a, b) => a + b, 0) / vals.length; const max = rows.reduce((a, b) => a[metric] > b[metric] ? a : b); const min = rows.reduce((a, b) => a[metric] < b[metric] ? a : b); const spread = max[metric] - min[metric]; el.innerHTML = '<b>Interpretasi tren:</b> Untuk <b>' + safe(shortName(commodity)) + '</b>, rata-rata bulanan 2025 berada di sekitar <b>' + fmt(avg) + '/kg</b>. Titik tertinggi terjadi pada <b>' + DATA.monthLabels[max.month - 1] + '</b> (' + fmt(max[metric]) + '/kg), sedangkan titik terendah pada <b>' + DATA.monthLabels[min.month - 1] + '</b> (' + fmt(min[metric]) + '/kg). Rentang <b>' + fmt(spread) + '/kg</b> membuat pola ini tergolong <b>' + stabilityLabel(spread, avg) + '</b>.'; }
 function updateExploreInsight() {
   const el = $('#exploreInsight'); if (!el) return;

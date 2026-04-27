@@ -131,11 +131,15 @@ a {
 }
 
 h1 {
-  font-family: var(--serif);
+  font-family: 'Marykota', var(--serif);
   font-size: clamp(46px, 9vw, 118px);
   line-height: .94;
   margin: 0 0 28px;
   letter-spacing: -.05em;
+}
+
+h2 {
+  font-family: 'Marykota', var(--serif);
 }
 
 h1 em,
@@ -149,6 +153,7 @@ h2 em {
   margin: 0 auto;
   color: var(--muted);
   font-size: clamp(17px, 2vw, 22px);
+  font-family: 'Poppins', sans-serif;
 }
 
 .meta-grid {
@@ -2374,14 +2379,14 @@ body {
 /* Dumbbell Hero Chart — full width, taller */
 .dumbbell-hero-wrap {
   width: 100%;
-  min-height: 680px;
+  min-height: 580px;
   position: relative;
 }
 
 .dumbbell-hero-wrap svg {
   width: 100%;
   height: auto;
-  min-height: 680px;
+  min-height: 480px;
 }
 
 #gap-section .story-grid {

@@ -7,6 +7,7 @@
   <title>Beban di Piring Kita — Visual Story Harga Pangan Indonesia 2025</title>
   <meta name="description"
     content="Visual story interaktif tentang ketimpangan harga pangan di 34 provinsi Indonesia tahun 2025. Menelusuri jurang harga yang tersembunyi di balik rata-rata nasional." />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css" />
   <style>
     /* Mengatur semua teks paragraf dan interpretasi menjadi rata kanan-kiri (justify) */
@@ -96,7 +97,6 @@
       loading="lazy" />
     <div class="story-grid">
       <div class="copy reveal">
-        <div class="chapter">Bab 1 — Pertanyaan Utama</div>
         <h2>Makanan murah, <em>murah untuk siapa?</em></h2>
         <p class="bodytext">Rata-rata nasional sering memberi kesan bahwa harga pangan bisa diringkas dalam satu angka.
           Padahal pengalaman belanja selalu terjadi di tempat tertentu, pada komoditas tertentu, dan pada waktu
@@ -127,7 +127,6 @@
     <img class="food-sticker s-b sticker-bounce" src="assets/images/food-sticker-11.png" alt="" aria-hidden="true"
       loading="lazy" />
     <div class="map-header reveal" style="max-width: 1280px; margin: 0 auto 32px;">
-      <div class="chapter">Bab 2 — Peta Harga</div>
       <h2>Lokasi adalah bagian dari <em>harga</em></h2>
       <p class="bodytext" style="max-width: 860px;">Peta ini menunjukkan bahwa harga pangan tidak tersebar merata.
         Ketika komoditas diganti, wilayah yang tampak mahal dan murah juga dapat berubah. Artinya, beban pangan bukan
@@ -200,7 +199,6 @@
 
       <!-- Right Column: Title, Description, and Interpretation -->
       <div class="copy" style="display: flex; flex-direction: column; justify-content: start; gap: 16px;">
-        <div class="chapter">Bab 3 — Struktur Harga</div>
         <h2 style="margin-top: 0; margin-bottom: 8px;"><em>Kenyang</em> lebih murah daripada bergizi</h2>
         <p class="bodytext" style="font-size: 20px; text-align: justify; margin-bottom: 0;">Harga pangan pokok seperti
           beras berada pada lapisan yang jauh lebih rendah dibandingkan sumber protein hewani. Ini tidak secara langsung
@@ -232,7 +230,6 @@
       loading="lazy" />
     <div class="story-grid">
       <div class="copy reveal">
-        <div class="chapter">Bab 4 — Ranking Wilayah</div>
         <h2>Provinsi berbeda, <em>beban berbeda</em></h2>
         <p class="bodytext">Ranking mengubah peta menjadi urutan yang lebih mudah dibaca. Di sini terlihat provinsi mana
           yang menempati posisi atas dan bawah untuk setiap komoditas. Dengan cara ini, pembaca tidak hanya melihat
@@ -268,7 +265,6 @@
   <section class="section alt" id="gap-section" data-title="Rentang">
     <div class="reveal" style="max-width: 1280px; margin: 0 auto;">
       <div class="copy reveal" style="position: static; max-width: 900px; margin-bottom: 40px;">
-        <div class="chapter">Bab 5 — Jurang Harga</div>
         <h2>Komoditas yang sama, harga bisa <em>terpaut jauh</em></h2>
         <p class="bodytext">Dumbbell ini memperlihatkan provinsi dengan harga rata-rata terendah dan tertinggi untuk
           setiap komoditas. Garis yang lebih panjang berarti jurang harga antarwilayah lebih besar.</p>
@@ -306,7 +302,6 @@
       loading="lazy" />
     <div class="story-grid">
       <div class="copy reveal">
-        <div class="chapter">Bab 6 — Dinamika Waktu</div>
         <h2>Ada yang mahal terus, ada yang <em>naik-turun</em></h2>
         <p class="bodytext">Perbedaan harga tidak hanya terjadi antarwilayah, tetapi juga sepanjang waktu. Beberapa
           komoditas relatif stabil namun berada di level tinggi; sebagian lain lebih bergejolak dari bulan ke bulan.</p>
@@ -339,7 +334,6 @@
   <section class="section alt" id="explore" data-title="Eksplorasi">
     <div class="explorer">
       <div class="copy reveal" style="position:static;max-width:900px">
-        <div class="chapter">Penutup — Ruang Eksplorasi</div>
         <h2>Sekarang pilih sendiri: pangan mana yang paling <em>timpang?</em></h2>
         <p class="bodytext">Cerita di atas menunjukkan pola besarnya: harga pangan tidak merata. Di bagian ini, pilih
           satu komoditas untuk melihat ulang ringkasannya—rata-rata nasional, provinsi termahal, provinsi termurah,
@@ -360,18 +354,23 @@
         <!-- 4 KPI Cards -->
         <div class="kpi-grid" id="exploreKpi"></div>
 
-        <!-- Ranking Provinsi -->
-        <div style="display: flex; flex-direction: column; gap: 8px; width: 100%;">
-          <div class="panel-title"
-            style="font-size: 0.9rem; margin-bottom: 0; color: var(--muted); letter-spacing: 1px;">TOP PROVINSI</div>
-          <svg id="exploreRank" viewBox="0 0 780 520" style="width: 100%; height: auto;"></svg>
-        </div>
+        <!-- Side-by-side Charts: Bar Chart (Left) & Line Chart (Right) -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; align-items: start; width: 100%;">
+          
+          <!-- Ranking Provinsi -->
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div class="panel-title"
+              style="font-size: 0.9rem; margin-bottom: 0; color: var(--muted); letter-spacing: 1px;">TOP PROVINSI</div>
+            <svg id="exploreRank" style="width: 100%; height: auto;"></svg>
+          </div>
 
-        <!-- Tren Bulanan -->
-        <div style="display: flex; flex-direction: column; gap: 8px; width: 100%;">
-          <div class="panel-title"
-            style="font-size: 0.9rem; margin-bottom: 0; color: var(--muted); letter-spacing: 1px;">TREN BULANAN</div>
-          <svg id="exploreTrend" viewBox="0 0 900 540" style="width: 100%; height: auto;"></svg>
+          <!-- Tren Bulanan -->
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div class="panel-title"
+              style="font-size: 0.9rem; margin-bottom: 0; color: var(--muted); letter-spacing: 1px;">TREN BULANAN</div>
+            <svg id="exploreTrend" style="width: 100%; height: auto;"></svg>
+          </div>
+
         </div>
 
         <!-- Interpretasi -->
@@ -379,9 +378,8 @@
           style="padding: 32px 40px; border-radius: 24px; box-shadow: 0 12px 30px rgba(138, 88, 30, 0.1); font-size: 1.1rem; line-height: 1.7; text-align: justify;">
         </div>
       </div>
-      <div class="quote reveal">Harga pangan tidak cukup dijawab dengan <strong>"berapa
-          rata-ratanya?"</strong>. Pertanyaan yang lebih penting adalah: <strong>siapa</strong> yang membayar lebih,
-        <strong>di mana</strong>, untuk <strong>makanan apa</strong>, dan <strong>kapan</strong>?
+      <div class="quote reveal" style="font-family: 'Poppins', sans-serif; font-size: 1.2rem; max-width: 800px; margin: 0 auto; line-height: 1.6; text-align: center; color: var(--muted);">
+        Harga pangan tidak cukup dijawab dengan <strong>"berapa rata-ratanya?"</strong>. Pertanyaan yang lebih penting adalah: <strong>siapa</strong> yang membayar lebih, <strong>di mana</strong>, untuk <strong>makanan apa</strong>, dan <strong>kapan</strong>?
       </div>
     </div>
   </section>
