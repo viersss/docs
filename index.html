@@ -5,18 +5,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Beban di Piring Kita — Visual Story Harga Pangan Indonesia 2025</title>
-  <meta name="description" content="Visual story interaktif tentang ketimpangan harga pangan di 34 provinsi Indonesia tahun 2025. Menelusuri jurang harga yang tersembunyi di balik rata-rata nasional." />
+  <meta name="description"
+    content="Visual story interaktif tentang ketimpangan harga pangan di 34 provinsi Indonesia tahun 2025. Menelusuri jurang harga yang tersembunyi di balik rata-rata nasional." />
   <link rel="stylesheet" href="css/styles.css" />
   <style>
     /* Mengatur semua teks paragraf dan interpretasi menjadi rata kanan-kiri (justify) */
-    p, 
-    .bodytext, 
-    .lead, 
-    .insight, 
-    .dynamic-interpretation, 
-    .map-interpretation, 
-    .map-interp-card, 
-    .rank-interp-card, 
+    p,
+    .bodytext,
+    .lead,
+    .insight,
+    .dynamic-interpretation,
+    .map-interpretation,
+    .map-interp-card,
+    .rank-interp-card,
     .rank-interp-card div,
     .chart-note,
     .copy p,
@@ -82,7 +83,7 @@
           <div class="meta-label">komoditas utama</div>
         </div>
       </div>
-      </div>
+    </div>
     </div>
   </section>
 
@@ -98,13 +99,16 @@
         <div class="chapter">Bab 1 — Pertanyaan Utama</div>
         <h2>Makanan murah, <em>murah untuk siapa?</em></h2>
         <p class="bodytext">Rata-rata nasional sering memberi kesan bahwa harga pangan bisa diringkas dalam satu angka.
-          Padahal pengalaman belanja selalu terjadi di tempat tertentu, pada komoditas tertentu, dan pada waktu tertentu.
+          Padahal pengalaman belanja selalu terjadi di tempat tertentu, pada komoditas tertentu, dan pada waktu
+          tertentu.
         </p>
         <p class="bodytext">Dalam data ini, beras berada pada lapisan harga yang relatif rendah, sementara daging sapi
           jauh lebih mahal. Di sisi wilayah, <strong>Papua</strong> mencatat rata-rata harga tertinggi, sedangkan
-          <strong>Kepulauan Riau</strong> berada di sisi terendah.</p>
+          <strong>Kepulauan Riau</strong> berada di sisi terendah.
+        </p>
         <p class="bodytext">Maka pertanyaannya bukan hanya "berapa harga pangan Indonesia?", melainkan:
-          <strong>siapa yang membayar lebih, di mana, untuk makanan apa, dan kapan?</strong></p>
+          <strong>siapa yang membayar lebih, di mana, untuk makanan apa, dan kapan?</strong>
+        </p>
       </div>
       <div class="reveal panel">
         <div class="panel-title"><span>Empat angka pembuka</span><span>Rata-rata 2025</span></div>
@@ -160,7 +164,8 @@
       style="max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; text-align: center;">
       <p class="bodytext" style="font-size: 20px;">Pilih komoditas untuk melihat bagaimana pola spasial berubah: harga
         <strong>daging sapi</strong>, <strong>bawang merah</strong>, atau <strong>beras</strong> tidak membentuk beban
-        yang sama di seluruh Indonesia.</p>
+        yang sama di seluruh Indonesia.
+      </p>
       <p class="bodytext" style="font-size: 20px;">Hover pada provinsi untuk melihat angka detail. Provinsi pemekaran
         Papua yang tidak tersedia di data harga akan ditampilkan sebagai wilayah tanpa data.</p>
     </div>
@@ -212,8 +217,8 @@
 
     <!-- Bottom: Insight Text -->
     <div class="reveal" style="max-width: 1000px; margin: 40px auto 0; text-align: center;">
-      <div class="insight"
-        style="margin-top: 0; text-align: center; max-width: 800px; margin-inline: auto;">Kenyang relatif lebih murah,
+      <div class="insight" style="margin-top: 0; text-align: center; max-width: 800px; margin-inline: auto;">Kenyang
+        relatif lebih murah,
         tetapi sumber protein berada pada lapisan harga yang jauh lebih tinggi.</div>
     </div>
   </section>
@@ -230,7 +235,8 @@
         <div class="chapter">Bab 4 — Ranking Wilayah</div>
         <h2>Provinsi berbeda, <em>beban berbeda</em></h2>
         <p class="bodytext">Ranking mengubah peta menjadi urutan yang lebih mudah dibaca. Di sini terlihat provinsi mana
-          yang menempati posisi atas dan bawah untuk setiap komoditas. Dengan cara ini, pembaca tidak hanya melihat bahwa
+          yang menempati posisi atas dan bawah untuk setiap komoditas. Dengan cara ini, pembaca tidak hanya melihat
+          bahwa
           suatu wilayah "mahal", tetapi juga tahu mahalnya untuk komoditas apa.</p>
         <div class="insight">Lokasi membuat harga yang sama terasa berbeda. Ranking membantu melihat siapa yang berada
           di ujung atas dan bawah.</div>
@@ -356,13 +362,15 @@
 
         <!-- Ranking Provinsi -->
         <div style="display: flex; flex-direction: column; gap: 8px; width: 100%;">
-          <div class="panel-title" style="font-size: 0.9rem; margin-bottom: 0; color: var(--muted); letter-spacing: 1px;">TOP PROVINSI</div>
+          <div class="panel-title"
+            style="font-size: 0.9rem; margin-bottom: 0; color: var(--muted); letter-spacing: 1px;">TOP PROVINSI</div>
           <svg id="exploreRank" viewBox="0 0 780 520" style="width: 100%; height: auto;"></svg>
         </div>
 
         <!-- Tren Bulanan -->
         <div style="display: flex; flex-direction: column; gap: 8px; width: 100%;">
-          <div class="panel-title" style="font-size: 0.9rem; margin-bottom: 0; color: var(--muted); letter-spacing: 1px;">TREN BULANAN</div>
+          <div class="panel-title"
+            style="font-size: 0.9rem; margin-bottom: 0; color: var(--muted); letter-spacing: 1px;">TREN BULANAN</div>
           <svg id="exploreTrend" viewBox="0 0 900 540" style="width: 100%; height: auto;"></svg>
         </div>
 
@@ -373,7 +381,8 @@
       </div>
       <div class="quote reveal">Harga pangan tidak cukup dijawab dengan <strong>"berapa
           rata-ratanya?"</strong>. Pertanyaan yang lebih penting adalah: <strong>siapa</strong> yang membayar lebih,
-        <strong>di mana</strong>, untuk <strong>makanan apa</strong>, dan <strong>kapan</strong>?</div>
+        <strong>di mana</strong>, untuk <strong>makanan apa</strong>, dan <strong>kapan</strong>?
+      </div>
     </div>
   </section>
 

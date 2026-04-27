@@ -2416,9 +2416,11 @@ body {
   .dumbbell-hero-wrap {
     min-height: 480px;
   }
+
   .dumbbell-hero-wrap svg {
     min-height: 480px;
   }
+
   #explore .kpi-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -2428,9 +2430,11 @@ body {
   .dumbbell-hero-wrap {
     min-height: 380px;
   }
+
   .dumbbell-hero-wrap svg {
     min-height: 380px;
   }
+
   #explore .kpi-grid {
     grid-template-columns: 1fr;
   }

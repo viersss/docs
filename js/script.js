@@ -443,7 +443,7 @@ function updateExploreInsight() {
   const avg = avgCommodityRow(exploreCommodity);
   const range = rangeRow(exploreCommodity);
   const gap = hi[exploreMetric] - lo[exploreMetric];
-  
+
   el.innerHTML = '<b>' + safe(shortName(exploreCommodity)) + '</b> — rata-rata nasional berada di <b>' + fmtM(avg[exploreMetric], exploreMetric) + '/kg</b>. Provinsi termahal <b>' + safe(hi.ProvLabel) + '</b> mencatat <b>' + fmtM(hi[exploreMetric], exploreMetric) + '/kg</b>, sedangkan termurah <b>' + safe(lo.ProvLabel) + '</b> hanya <b>' + fmtM(lo[exploreMetric], exploreMetric) + '/kg</b>. Selisih <b>' + fmtM(gap, exploreMetric) + '/kg</b> (sekitar <b>' + range.ratio + '×</b>) menunjukkan bahwa rata-rata nasional tidak cukup menggambarkan beban nyata konsumen di wilayah yang berbeda.';
 }
 
