@@ -7,8 +7,8 @@
   <title>Beban di Piring Kita — Visual Story Harga Pangan Indonesia 2025</title>
   <meta name="description"
     content="Visual story interaktif tentang ketimpangan harga pangan di 34 provinsi Indonesia tahun 2025. Menelusuri jurang harga yang tersembunyi di balik rata-rata nasional." />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css" />
   <style>
     /* Mengatur semua teks paragraf dan interpretasi menjadi rata kanan-kiri (justify) */
     p,
@@ -111,7 +111,6 @@
         </p>
       </div>
       <div class="reveal panel">
-        <div class="panel-title"><span>Empat angka pembuka</span><span>Rata-rata 2025</span></div>
         <div class="kpi-grid" id="kpiGrid"></div>
         <div id="commodityContrast"></div>
         <div class="dynamic-interpretation" id="kpiInsight"></div>
@@ -136,7 +135,6 @@
     <div class="reveal"
       style="margin: 0 auto 40px; max-width: 95%; width: 100%; display: flex; flex-direction: column; gap: 16px;">
       <div class="panel-title" style="margin-bottom: 0;">
-        <span>Peta choropleth rata-rata harga provinsi</span>
         <div class="controls">
           <select id="mapCommodity"></select>
           <button id="metricIDR" class="metric-btn active" data-metric="price">IDR</button>
@@ -181,8 +179,7 @@
       style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 60px; align-items: start; max-width: 1280px; margin: 0 auto;">
       <!-- Left Column: Charts -->
       <div style="display: flex; flex-direction: column; gap: 20px;">
-        <div class="panel-title" style="margin-bottom: 0;"><span>Donut kategori + ranking komoditas</span><span
-            id="structureMetricLabel">IDR/kg</span></div>
+
 
         <!-- Donut Chart Enlarged -->
         <div style="width: 100%; display: flex; flex-direction: column; align-items: center;">
@@ -240,7 +237,6 @@
       </div>
       <div class="reveal panel--ranking" style="display: flex; flex-direction: column; gap: 16px;">
         <div class="panel-title" style="margin-bottom: 0;">
-          <span>Ranking provinsi</span>
           <div class="controls">
             <select id="rankCommodity"></select>
             <button id="top10Btn" class="active">Top 10</button>
@@ -275,7 +271,6 @@
       <!-- Dumbbell Chart - Full Width Hero Chart -->
       <div style="display: flex; flex-direction: column; gap: 16px; width: 100%;">
         <div class="panel-title" style="margin-bottom: 0;">
-          <span>Dumbbell min–maks antarprovinsi</span>
           <div class="controls">
             <select id="gapCommodity"></select>
             <button id="gapAllBtn" class="active">Semua</button>
@@ -312,7 +307,6 @@
       </div>
       <div class="reveal" style="display: flex; flex-direction: column; gap: 16px;">
         <div class="panel-title" style="margin-bottom: 0;">
-          <span>Tren harga bulanan 2025</span>
           <div class="controls">
             <select id="trendCommodity"></select>
             <button id="trendAllBtn" class="active">Semua</button>
@@ -343,7 +337,6 @@
       </div>
       <div class="reveal" style="display: flex; flex-direction: column; gap: 24px; width: 100%;">
         <div class="panel-title" style="margin-bottom: 0;">
-          <span>Pilih komoditas</span>
           <div class="controls">
             <select id="exploreCommodity"></select>
             <button id="exploreIDR" class="explore-metric active" data-metric="price">IDR</button>
@@ -389,10 +382,6 @@
       <div class="smallcaps">Sumber data</div>
       <div>FoodPrice.xlsx · Data harga pangan Indonesia 2025 · 13,011 observasi · 34 provinsi · 218 pasar · retail ·
         IDR.</div>
-    </div>
-    <div style="max-width:520px">
-      <b>Catatan metodologi:</b> angka adalah rata-rata sederhana dari observasi yang tersedia. Rentang min–maks
-      dihitung dari rata-rata harga provinsi untuk setiap komoditas, bukan dari pendapatan atau konsumsi rumah tangga.
     </div>
   </footer>
 

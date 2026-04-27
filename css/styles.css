@@ -131,7 +131,7 @@ a {
 }
 
 h1 {
-  font-family: 'Marykota', var(--serif);
+  font-family: 'Montserrat', var(--sans);f);
   font-size: clamp(46px, 9vw, 118px);
   line-height: .94;
   margin: 0 0 28px;
