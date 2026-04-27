@@ -2439,3 +2439,32 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* User custom changes for food stickers */
+.food-sticker,
+.food-sticker:hover,
+.hero .food-sticker,
+.section .food-sticker {
+  opacity: 1 !important;
+  filter: none !important;
+  display: block !important;
+}
+
+.food-sticker {
+  width: 90px !important;
+  height: 90px !important;
+}
+
+@media (max-width: 980px) {
+  .food-sticker {
+    width: 75px !important;
+    height: 75px !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .food-sticker {
+    width: 60px !important;
+    height: 60px !important;
+  }
+}
