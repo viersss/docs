@@ -100,7 +100,7 @@ function initNav() {
     const max = document.body.scrollHeight - innerHeight;
     const progress = $('#progress');
     if (progress) progress.style.width = (scrollY / max * 100) + '%';
-    
+
     if (nav) {
       let active = 0;
       sections.forEach((id, i) => {
@@ -131,18 +131,7 @@ function drawKpis() {
     ['Provinsi termurah', fmtIDR(k.provinceMin.price), k.provinceMin.name, 'var(--teal)']
   ];
   setHTML('#kpiGrid', cards.map(d => `<div class="kpi"><div class="kpi-label">${d[0]}</div><div class="kpi-val" style="color:${d[3]}">${d[1]}</div><div class="kpi-sub">${d[2]}</div></div>`).join(''));
-  const ratio = DATA.kpi.ratioMaxMinCommodity;
-  const pct = DATA.kpi.commodityMin.price / DATA.kpi.commodityMax.price * 100;
-  setHTML('#commodityContrast', `
-    <div class="panel-title" style="margin-top:10px"><span>Kontras komoditas</span><span>${ratio}×</span></div>
-    <div style="height:18px;background:rgba(126,82,33,.10);border-radius:999px;position:relative;overflow:hidden">
-      <div style="position:absolute;left:0;top:0;bottom:0;width:100%;background:linear-gradient(90deg,var(--teal),var(--gold),var(--chili));opacity:.82"></div>
-      <div style="position:absolute;left:${pct}%;top:0;bottom:0;width:2px;background:var(--bg)"></div>
-    </div>
-    <div style="display:flex;justify-content:space-between;margin-top:8px;font-family:var(--mono);font-size:12px;color:var(--muted)">
-      <span>${DATA.kpi.commodityMin.name} · ${fmtIDR(DATA.kpi.commodityMin.price)}</span>
-      <span>${DATA.kpi.commodityMax.name} · ${fmtIDR(DATA.kpi.commodityMax.price)}</span>
-    </div>`);
+
   updateKpiInsight();
 }
 
@@ -445,16 +434,16 @@ function updateRankingInsight() {
     '<div class="rank-interp-card"><div class="interp-label">Jarak Harga</div>Jarak antara posisi tertinggi dan terendah mencapai <b>' + fmt(gap) + '/kg</b> (sekitar <b>' + pctGap + '%</b>), sehingga ranking ini memperjelas siapa yang berada di ujung beban harga.</div>' +
     '</div>';
 }
-function updateGapInsight() { 
-  const el = $('#gapInsight'); if (!el) return; 
-  const key = metric === 'price' ? 'Price' : 'Usd'; 
-  const rows = (gapSelected === '__all__' ? DATA.ranges.slice() : DATA.ranges.filter(d => d.commodity === gapSelected)).sort((a, b) => b['spread' + key] - a['spread' + key]); 
-  if (!rows.length) return; 
-  const r = rows[0]; 
+function updateGapInsight() {
+  const el = $('#gapInsight'); if (!el) return;
+  const key = metric === 'price' ? 'Price' : 'Usd';
+  const rows = (gapSelected === '__all__' ? DATA.ranges.slice() : DATA.ranges.filter(d => d.commodity === gapSelected)).sort((a, b) => b['spread' + key] - a['spread' + key]);
+  if (!rows.length) return;
+  const r = rows[0];
   const isAll = gapSelected === '__all__';
   const labelTitle = isAll ? 'Ketimpangan Terbesar' : 'Rentang Harga';
   const labelText = isAll ? 'Rentang harga paling lebar terjadi pada <b>' + safe(shortName(r.commodity)) + '</b>.' : 'Untuk komoditas <b>' + safe(shortName(r.commodity)) + '</b>,';
-  
+
   el.innerHTML = '<div class="rank-interp-grid" style="text-align: left; margin-top: 8px;">' +
     '<div class="rank-interp-card"><div class="interp-label">' + labelTitle + '</div>' + labelText + ' Harga termurah ada di <b>' + safe(r.minProv) + '</b> (' + fmtM(r['min' + key], metric) + '/kg) dan termahal di <b>' + safe(r.maxProv) + '</b> (' + fmtM(r['max' + key], metric) + '/kg).</div>' +
     '<div class="rank-interp-card"><div class="interp-label">Besaran Jurang</div>Selisih harga antara kedua wilayah tersebut mencapai <b>' + fmtM(r['spread' + key], metric) + '/kg</b>. Artinya, konsumen di daerah termahal membayar <b>' + r.ratio + ' kali lipat</b> lebih mahal.</div>' +

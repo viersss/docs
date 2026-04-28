@@ -13,9 +13,8 @@
   <link rel="stylesheet" href="css/styles.css" />
   <style>
     /* Mengatur semua teks paragraf dan interpretasi menjadi rata kanan-kiri (justify) */
-    p,
+    p:not(.lead),
     .bodytext,
-    .lead,
     .insight,
     .dynamic-interpretation,
     .map-interpretation,
@@ -23,7 +22,7 @@
     .rank-interp-card,
     .rank-interp-card div,
     .chart-note,
-    .copy p,
+    .copy p:not(.lead),
     .dynamic-interpretation p {
       text-align: justify !important;
     }
@@ -62,7 +61,9 @@
       loading="lazy" />
     <div class="hero-inner">
       <h1 class="reveal">Beban di <em>Piring</em> Kita</h1>
-      <p class="lead reveal">Harga pangan bukan sekadar soal komoditas, tetapi juga soal lokasi. Dari 13.011 observasi di 34 provinsi dan 218 pasar, rata-rata nasional kerap mereduksi realitas dengan menyamarkan disparitas harga yang tajam antarwilayah.</p>
+      <p class="lead reveal">Harga pangan <strong>bukan sekadar soal komoditas</strong>, tetapi juga <strong>soal
+          lokasi</strong>. Dari 13.011 observasi di 34 provinsi dan 218 pasar, rata-rata nasional kerap mereduksi
+        realitas dengan menyamarkan <em>disparitas harga yang tajam antarwilayah</em>.</p>
       <div class="meta-grid reveal">
         <div class="meta-card">
           <div class="meta-num">13,011</div>
@@ -96,36 +97,14 @@
       <div class="copy reveal editorial-hook">
         <h2 class="hook-lead">Lebih dari Sekadar <em>Rata-rata Nasional</em></h2>
 
-        <div class="hook-visual-grid">
-          <div class="hook-fact">
-            <span class="fact-icon">🍚</span>
-            <div class="fact-body">
-              <strong>Beras</strong> tetap menjadi jangkar harga yang relatif rendah di pasar.
-            </div>
-          </div>
-          <div class="hook-fact">
-            <span class="fact-icon">🥩</span>
-            <div class="fact-body">
-              <strong>Daging Sapi</strong> melambung jauh sebagai komoditas termahal.
-            </div>
-          </div>
-          <div class="hook-fact">
-            <span class="fact-icon">📍</span>
-            <div class="fact-body">
-              Beban terberat ada di <strong>Papua</strong>, sementara <strong>Kepulauan Riau</strong> mencatat titik
-              terendah.
-            </div>
-          </div>
-        </div>
-
-        <div class="hook-question-box">
-          <p>Pertanyaan Utama Cerita Ini</p>
-          <h3 class="big-question">Siapa membayar lebih, di mana, untuk makanan apa, dan kapan?</h3>
+        <div class="modern-question-block reveal">
+          <h3 class="big-question-modern">siapa yang menghadapi<br> <span>beban konsumsi pangan tertinggi?</span>
+          </h3>
         </div>
       </div>
       <div class="reveal panel">
         <div class="kpi-grid" id="kpiGrid"></div>
-        <div id="commodityContrast"></div>
+
         <div class="dynamic-interpretation" id="kpiInsight"></div>
       </div>
     </div>
@@ -140,7 +119,7 @@
       loading="lazy" />
     <div class="map-header reveal" style="max-width: 1280px; margin: 0 auto 32px;">
       <h2>Lokasi adalah bagian dari <em>harga</em></h2>
-      <p class="bodytext" style="max-width: 860px;">Peta ini menunjukkan bahwa harga pangan tidak tersebar merata.
+      <p class="lead reveal" style="max-width: 860px; margin: 0 auto 40px;">Peta ini menunjukkan bahwa harga pangan tidak tersebar merata.
         Ketika komoditas diganti, wilayah yang tampak mahal dan murah juga dapat berubah. Artinya, beban pangan bukan
         hanya ditentukan oleh jenis makanan, tetapi juga oleh posisi geografis dan akses pasar.</p>
     </div>
@@ -200,7 +179,7 @@
       <!-- Right Column: Title, Description, and Interpretation -->
       <div class="copy" style="display: flex; flex-direction: column; justify-content: start; gap: 16px;">
         <h2 style="margin-top: 0; margin-bottom: 8px;"><em>Kenyang</em> lebih murah daripada bergizi</h2>
-        <p class="bodytext" style="font-size: 20px; text-align: justify; margin-bottom: 0;">Harga pangan pokok seperti
+        <p class="lead reveal" style="margin-bottom: 24px;">Harga pangan pokok seperti
           beras berada pada lapisan yang jauh lebih rendah dibandingkan sumber protein hewani. Ini tidak secara langsung
           mengukur kualitas gizi atau pola konsumsi rumah tangga, tetapi memperlihatkan struktur harga: kebutuhan untuk
           kenyang dan kebutuhan untuk asupan protein berada pada tingkat biaya yang berbeda.</p>
@@ -231,7 +210,7 @@
     <div class="story-grid">
       <div class="copy reveal">
         <h2>Provinsi berbeda, <em>beban berbeda</em></h2>
-        <p class="bodytext">Ranking mengubah peta menjadi urutan yang lebih mudah dibaca. Di sini terlihat provinsi mana
+        <p class="lead reveal" style="margin-bottom: 24px;">Ranking mengubah peta menjadi urutan yang lebih mudah dibaca. Di sini terlihat provinsi mana
           yang menempati posisi atas dan bawah untuk setiap komoditas. Dengan cara ini, pembaca tidak hanya melihat
           bahwa
           suatu wilayah "mahal", tetapi juga tahu mahalnya untuk komoditas apa.</p>
@@ -264,7 +243,7 @@
     <div class="reveal" style="max-width: 1280px; margin: 0 auto;">
       <div class="copy reveal" style="position: static; max-width: 900px; margin-bottom: 40px;">
         <h2>Komoditas yang sama, harga bisa <em>terpaut jauh</em></h2>
-        <p class="bodytext">Dumbbell ini menyoroti provinsi dengan harga rata-rata terendah dan tertinggi untuk setiap komoditas, di mana panjang garis mencerminkan besarnya jurang harga antarwilayah, sekaligus menegaskan bahwa rata-rata nasional tidak cukup karena konsumen tidak membayar rata-rata, melainkan harga lokal yang mereka hadapi di wilayahnya.</p>
+        <p class="lead reveal" style="margin-bottom: 32px;">Dumbbell ini menyoroti provinsi dengan harga rata-rata terendah dan tertinggi untuk setiap komoditas, di mana panjang garis mencerminkan besarnya jurang harga antarwilayah, sekaligus menegaskan bahwa rata-rata nasional tidak cukup karena konsumen tidak membayar rata-rata, melainkan harga lokal yang mereka hadapi di wilayahnya.</p>
       </div>
 
       <!-- Dumbbell Chart - Full Width Hero Chart -->
@@ -297,7 +276,7 @@
     <div class="story-grid">
       <div class="copy reveal">
         <h2>Ada yang mahal terus, ada yang <em>naik-turun</em></h2>
-        <p class="bodytext">Perbedaan harga tidak hanya terbentang antarwilayah, tetapi juga bergeser sepanjang waktu, di mana sebagian komoditas menetap tinggi secara konsisten sementara yang lain berfluktuasi tajam dari bulan ke bulan, sehingga tren bulanan mengungkap dua wajah beban pangan, yaitu harga yang terus menekan dan harga yang sulit diprediksi.</p>
+        <p class="lead reveal" style="margin-bottom: 24px;">Perbedaan harga tidak hanya terbentang antarwilayah, tetapi juga bergeser sepanjang waktu, di mana sebagian komoditas menetap tinggi secara konsisten sementara yang lain berfluktuasi tajam dari bulan ke bulan, sehingga tren bulanan mengungkap dua wajah beban pangan, yaitu harga yang terus menekan dan harga yang sulit diprediksi.</p>
       </div>
       <div class="reveal" style="display: flex; flex-direction: column; gap: 16px;">
         <div class="panel-title" style="margin-bottom: 0;">
@@ -322,8 +301,11 @@
     <div class="explorer">
       <div class="copy reveal" style="position:static;max-width:900px">
         <h2>Sekarang pilih sendiri: pangan mana yang paling <em>timpang?</em></h2>
-        <p class="bodytext">Cerita di atas menunjukkan pola utama bahwa harga pangan tidak merata. Pada bagian ini, pembaca dapat memilih satu komoditas untuk melihat ringkasannya, mulai dari rata-rata nasional, provinsi termahal dan termurah, selisih harga, hingga tren bulanan, sehingga alur tidak berhenti pada satu kesimpulan, melainkan membuka ruang eksplorasi untuk menguji komoditas mana yang paling membebani wilayah tertentu.</p>
-   
+        <p class="lead reveal" style="max-width: 900px; margin: 0 auto 40px;">Cerita di atas menunjukkan pola utama bahwa harga pangan tidak merata. Pada bagian ini,
+          pembaca dapat memilih satu komoditas untuk melihat ringkasannya, mulai dari rata-rata nasional, provinsi
+          termahal dan termurah, selisih harga, hingga tren bulanan, sehingga alur tidak berhenti pada satu kesimpulan,
+          melainkan membuka ruang eksplorasi untuk menguji komoditas mana yang paling membebani wilayah tertentu.</p>
+
       </div>
       <div class="reveal" style="display: flex; flex-direction: column; gap: 24px; width: 100%;">
         <div class="panel-title" style="margin-bottom: 0;">
